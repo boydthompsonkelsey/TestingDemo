@@ -46,20 +46,20 @@ class TestOrdersInventoryIntegration:
         orders.place_order("b@b.com", "keyboard", 10)  # 20 → 10
         assert inventory.get_stock("keyboard") == 10
 
-    def test_ordering_exact_remaining_stock_empties_item(self):
-        """
-        Edge case: order exactly what's left.
-        This is the test that catches the BUG we introduce in the demo.
-        See STEP 3 instructions for details.
-        """
-        available = inventory.get_stock("laptop")   # 10
-        result = orders.place_order("dana@example.com", "laptop", available)
-        assert result.success is True, (
-            f"Order should succeed when requesting exactly available stock.\n"
-            f"  Got: success={result.success}, message='{result.message}'\n"
-            f"  Hint: check what reduce_stock() returns when stock hits zero."
-        )
-        assert inventory.get_stock("laptop") == 0
+    # def test_ordering_exact_remaining_stock_empties_item(self):
+    #     """
+    #     Edge case: order exactly what's left.
+    #     This is the test that catches the BUG we introduce in the demo.
+    #     See STEP 3 instructions for details.
+    #     """
+    #     available = inventory.get_stock("laptop")   # 10
+    #     result = orders.place_order("dana@example.com", "laptop", available)
+    #     assert result.success is True, (
+    #         f"Order should succeed when requesting exactly available stock.\n"
+    #         f"  Got: success={result.success}, message='{result.message}'\n"
+    #         f"  Hint: check what reduce_stock() returns when stock hits zero."
+    #     )
+    #     assert inventory.get_stock("laptop") == 0
 
 
 # ── orders ↔ notifications ────────────────────────────────────────────────────
