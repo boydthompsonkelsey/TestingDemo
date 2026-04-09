@@ -26,4 +26,7 @@ jobs:
         run: pytest -q
 
       - name: Security Team
-        run: __________________________________________
+        run: bandit
+
+      - name: Dependency scan
+        run: safety
