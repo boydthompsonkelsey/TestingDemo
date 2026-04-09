@@ -58,7 +58,6 @@ class TestReduceStock:
         inventory.reduce_stock("laptop", 3)
         assert inventory.get_stock("laptop") == 7
 
-
     # def test_reduce_all_stock_returns_true(self):
     #     # Edge case: order exactly as many as are available
     #     result = inventory.reduce_stock("laptop", 10)
