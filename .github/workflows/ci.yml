@@ -28,7 +28,7 @@ jobs:
         run: flake8
       
       - name: run bandit
-        run: bandit
+        run: bandit src
 
       - name: run safety
         run: safety check
